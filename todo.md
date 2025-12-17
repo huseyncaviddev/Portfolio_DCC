@@ -1,0 +1,27 @@
+# Huseyn Cavid Portfolio TODO
+
+- [x] Update design theme for professional portfolio (dark theme, modern typography)
+- [x] Create hero section with name, title, and contact info
+- [x] Create experience section with work history
+- [x] Create skills/competencies section
+- [x] Create education section
+- [x] Create contact section with email and LinkedIn
+- [x] Update navigation and layout
+- [x] Configure App.tsx with proper routes
+- [x] Replace HC initials with circular avatar in navbar
+- [x] Add Download CV button to hero section
+- [x] Add professional tagline to hero section
+- [x] Implement scroll-aware navbar with hide/show animations
+- [x] Add interactive gradient hover effect to all cards
+- [x] Remove Manus badge from bottom-right
+- [x] Add dark/light mode toggle button to navbar
+- [x] Implement scroll-spy feature for navbar link highlighting
+- [x] Implement smooth scroll animation for navbar links
+- [x] Upgrade to full-stack project for contact form backend
+- [x] Create contact form component with validation
+- [x] Implement email submission API endpoint
+- [x] Add success/error feedback to contact form
+- [x] Integrate ContactForm component into Home page
+- [x] Standardize skill/competency card heights and responsive layout
+- [x] Implement advanced 3D tilt hover effect with LED glow on all cards
+- [x] Refine 3D hover effect: reduce tilt angle to 5-7 degrees, improve light synchronization
