@@ -26,103 +26,36 @@ import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { use3DTilt } from "@/hooks/use3DTilt";
 import ContactForm from "@/components/ContactForm";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const experiences = [
-  {
-    title: "Document Control Lead",
-    company: "KOLIN Construction",
-    period: "06/2024 - Present",
-    location: "Sitalchay, Azerbaijan",
-    website: "kolin.com.tr",
-    highlights: [
-      "Architected and managed complete document lifecycle (creation, review, approval, distribution, archiving) in line with FIDIC-based requirements",
-      "Directed full control over all outgoing and incoming documentation (TRN, LET, STQ, MAR, MIR, ITP, SHD, MOM, DR, NCR)",
-      "Led MDR governance, enforcing strict numbering, revision, and metadata protocols across all disciplines",
-      "Designed and implemented structured server architecture for 5+ engineering disciplines and 20+ subcontractors",
-      "Developed automation tools (PowerShell/Python) reducing manual processing time by over 60%"
-    ]
-  },
-  {
-    title: "Document Controller",
-    company: "KOLIN Construction",
-    period: "04/2021 - 06/2024",
-    location: "Kalbajar, Azerbaijan",
-    website: "kolin.com.tr",
-    highlights: [
-      "Controlled all incoming/outgoing project documentation across civil, mechanical, electrical disciplines",
-      "Maintained MDR ensuring continuous accuracy, revision integrity, and audit readiness",
-      "Ensured compliance with document numbering, revision control, and metadata rules",
-      "Monitored EDMS workflows and email-based routing systems"
-    ]
-  },
-  {
-    title: "IT Specialist",
-    company: "Clopos POS",
-    period: "06/2018 - 02/2021",
-    location: "Baku, Azerbaijan",
-    website: "clopos.com",
-    highlights: [
-      "Provided technical support for POS system operations across multiple restaurant clients",
-      "Installed and configured servers, networks, routers, switches, and UniFi access points",
-      "Maintained and repaired hardware systems (SSD, HDD, RAM, CPU)",
-      "Performed OS installation, printer configuration, and general IT support"
-    ]
-  }
+// Language-agnostic data
+const experienceWebsites = [
+  "kolin.com.tr",
+  "kolin.com.tr",
+  "clopos.com"
 ];
 
-const skills = {
-  "Document Control & Governance": [
-    "Document Control Governance",
-    "Documentation Management",
-    "Document Control Lifecycle (End-to-End)",
-    "Revision Control & Compliance",
-    "Team Leadership & Training"
-  ],
-  "EDMS Expertise": [
-    "EDMS Administration (Aconex, SharePoint, FileOrbis)",
-    "Workflow Design & Optimization",
-    "Metadata Structuring & Numbering Systems",
-    "MDR & DDM Management",
-    "Permission & Access Control"
-  ],
-  "Automation & Tools": [
-    "Python Automation (DCC scripts)",
-    "PowerShell Automation",
-    "Advanced Excel (Dashboards, Trackers, PivotTables)",
-    "PDF Tools (Markups, Stamps, Merging)"
-  ],
-  "Quality & Compliance": [
-    "Audit Preparation & Document Integrity",
-    "Controlled Document Distribution",
-    "Risk Identification in Document Flow"
-  ],
-  "Reporting & Communication": [
-    "KPI Reporting & Analytics"
-  ]
-};
-
-const education = [
-  {
-    degree: "Master's Degree",
-    field: "Hotel Management",
-    institution: "Baku State University",
-    period: "09/2021 - 06/2023"
-  },
-  {
-    degree: "Bachelor's Degree",
-    field: "Business Management",
-    institution: "Baku State University",
-    period: "09/2017 - 06/2021"
-  }
+const educationPeriods = [
+  "09/2021 - 06/2023",
+  "09/2017 - 06/2021"
 ];
 
-const languages = [
-  { name: "English", level: "Upper-Intermediate" },
-  { name: "Russian", level: "Intermediate" }
-];
+// Competency keys for iteration
+const competencyKeys = [
+  'documentControl',
+  'edms',
+  'automation',
+  'quality',
+  'reporting'
+] as const;
 
 // Experience Card Component with Gradient
-function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: number }) {
+function ExperienceCard({ exp, index, period, website }: {
+  exp: { title: string; company: string; location: string; highlights: string[] };
+  index: number;
+  period: string;
+  website?: string;
+}) {
   const gradientRef = useCardGradient();
   const { cardRef: tiltRef, tilt, isMobile, isHovering } = use3DTilt();
   
@@ -160,18 +93,18 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
                 <span className="font-semibold text-foreground">{exp.company}</span>
                 <span>•</span>
                 <span>{exp.location}</span>
-                {exp.website && (
+                {website && (
                   <>
                     <span>•</span>
-                    <a href={`https://${exp.website}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      {exp.website}
+                    <a href={`https://${website}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      {website}
                     </a>
                   </>
                 )}
               </div>
             </div>
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium whitespace-nowrap">
-              {exp.period}
+              {period}
             </span>
           </div>
           
@@ -289,7 +222,11 @@ function SkillCard({ category, items, index }: { category: string; items: string
 }
 
 // Education Card Component with Gradient
-function EducationCard({ edu, index }: { edu: typeof education[0]; index: number }) {
+function EducationCard({ edu, index, period }: {
+  edu: { degree: string; field: string; institution: string };
+  index: number;
+  period: string;
+}) {
   const gradientRef = useCardGradient();
   const { cardRef: tiltRef, tilt, isMobile, isHovering } = use3DTilt();
   
@@ -327,7 +264,7 @@ function EducationCard({ edu, index }: { edu: typeof education[0]; index: number
               <p className="text-muted-foreground text-sm">{edu.institution}</p>
             </div>
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-muted text-muted-foreground text-xs sm:text-sm font-medium whitespace-nowrap flex-shrink-0">
-              {edu.period}
+              {period}
             </span>
           </div>
         </CardContent>
@@ -339,8 +276,21 @@ function EducationCard({ edu, index }: { edu: typeof education[0]; index: number
 export default function Home() {
   const navbarVisible = useScrollDirection();
   const { theme, toggleTheme } = useTheme();
+  const { t, tList, tObject } = useLanguage();
   const activeSection = useScrollSpy(['about', 'experience', 'skills', 'education', 'contact']);
   const scrollToSection = useSmoothScroll();
+
+  // Get translated data
+  const experiences = tObject<Array<{ title: string; company: string; location: string; highlights: string[] }>>('experience.items');
+  const education = tObject<Array<{ degree: string; field: string; institution: string }>>('education.items');
+  const spokenLanguages = tObject<Array<{ name: string; level: string }>>('spokenLanguages.items');
+
+  // Date periods with localized "Present"
+  const experiencePeriods = [
+    `06/2024 - ${t('common.present')}`,
+    "04/2021 - 06/2024",
+    "06/2018 - 02/2021"
+  ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
@@ -348,11 +298,11 @@ export default function Home() {
   };
 
   const navLinks = [
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'education', label: 'Education' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'about', label: t('nav.about') },
+    { id: 'experience', label: t('nav.experience') },
+    { id: 'skills', label: t('nav.skills') },
+    { id: 'education', label: t('nav.education') },
+    { id: 'contact', label: t('nav.contact') }
   ];
 
   return (
@@ -364,9 +314,9 @@ export default function Home() {
         }`}
       >
         <div className="container flex items-center justify-between h-16">
-          <img 
-            src="/avatar.png" 
-            alt="Huseyn Cavid" 
+          <img
+            src="/avatar.png"
+            alt={t('hero.altText')}
             className="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-sm"
           />
           <div className="hidden md:flex items-center gap-8">
@@ -389,6 +339,7 @@ export default function Home() {
             ))}
           </div>
           <div className="flex items-center gap-4">
+            <LanguageSwitcher />
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg hover:bg-muted transition-colors"
@@ -400,7 +351,6 @@ export default function Home() {
                 <Moon className="h-5 w-5 text-muted-foreground" />
               )}
             </button>
-           
           </div>
         </div>
       </nav>
@@ -415,27 +365,25 @@ export default function Home() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-              Available for opportunities
+              {t('hero.availability')}
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight mb-2 leading-[1.1]">
-              Huseyn Cavid
+              {t('hero.name')}
             </h1>
-            
+
             <p className="text-lg md:text-xl text-muted-foreground font-medium mb-6 italic">
-              Building Compliant, Scalable Document Control Ecosystems
+              {t('hero.tagline')}
             </p>
-            
+
             <h2 className="text-2xl md:text-3xl text-primary font-semibold mb-6">
-              Document Controller Lead
+              {t('hero.role')}
             </h2>
-            
+
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-              Document Control Lead with a proven track record of building fast, scalable, and fully compliant 
-              document control ecosystems for large-scale construction and industrial projects. Expert in EDMS 
-              administration, lifecycle governance, and workflow automation using PowerShell and Python.
+              {t('hero.description')}
             </p>
-            
+
             <div className="flex flex-wrap gap-4 mb-12">
               <a href="mailto:huseyn.cavid.dev@gmail.com" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="h-5 w-5" />
@@ -447,28 +395,28 @@ export default function Home() {
               </a>
               <span className="inline-flex items-center gap-2 text-muted-foreground">
                 <MapPin className="h-5 w-5" />
-                <span>Azerbaijan, Baku</span>
+                <span>{t('hero.location')}</span>
               </span>
             </div>
-            
+
             <div className="flex flex-wrap gap-4">
               <a href="/Huseyn-Cavid-Resume.docx" download onClick={(e) => e.stopPropagation()}>
                 <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2">
                   <FileText className="h-5 w-5" />
-                  Download CV
+                  {t('buttons.downloadCV')}
                 </Button>
               </a>
               <a href="https://www.linkedin.com/in/huseyncavid" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="gap-2">
                   <Linkedin className="h-5 w-5" />
-                  Connect on LinkedIn
+                  {t('buttons.connectLinkedIn')}
                   <ExternalLink className="h-4 w-4" />
                 </Button>
               </a>
               <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>
                 <Button size="lg" variant="outline" className="gap-2">
                   <Mail className="h-5 w-5" />
-                  Send Message
+                  {t('buttons.sendMessage')}
                 </Button>
               </a>
             </div>
@@ -480,14 +428,9 @@ export default function Home() {
       <section id="about" className="py-24 bg-muted/30">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">About Me</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">{t('sections.about')}</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I am a Document Control Lead with extensive experience in managing document control ecosystems 
-              for large-scale construction projects. My expertise lies in EDMS administration, lifecycle governance, 
-              revision control, and stakeholder coordination across Contractor–Engineer–Employer environments. 
-              I am highly skilled in workflow automation using PowerShell and Python, having reduced manual workloads 
-              by 60%+ and transformed document turnaround speed and accuracy. Known for strong operational discipline, 
-              precision, and a process-driven mindset, ensuring zero deviation from FIDIC, project procedures, and QA/QC requirements.
+              {t('about.description')}
             </p>
           </div>
         </div>
@@ -498,12 +441,18 @@ export default function Home() {
         <div className="container">
           <div className="flex items-center gap-3 mb-12">
             <Building2 className="h-8 w-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-display font-bold">Experience</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold">{t('sections.experience')}</h2>
           </div>
           
           <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <ExperienceCard key={index} exp={exp} index={index} />
+              <ExperienceCard
+                key={index}
+                exp={exp}
+                index={index}
+                period={experiencePeriods[index]}
+                website={experienceWebsites[index]}
+              />
             ))}
           </div>
         </div>
@@ -514,13 +463,17 @@ export default function Home() {
         <div className="container">
           <div className="flex items-center gap-3 mb-12">
             <Code className="h-8 w-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-display font-bold">Core Competencies</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold">{t('sections.skills')}</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
-            {Object.entries(skills).map(([category, items], index) => (
-              <SkillCard key={category} category={category} items={items} index={index} />
-            ))}
+            {competencyKeys.map((key, index) => {
+              const title = t(`competencies.${key}.title`);
+              const items = tList(`competencies.${key}.items`);
+              return (
+                <SkillCard key={key} category={title} items={items} index={index} />
+              );
+            })}
           </div>
         </div>
       </section>
@@ -530,23 +483,23 @@ export default function Home() {
         <div className="container">
           <div className="flex items-center gap-3 mb-12">
             <GraduationCap className="h-8 w-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-display font-bold">Education</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold">{t('sections.education')}</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 auto-rows-fr">
             {education.map((edu, index) => (
-              <EducationCard key={index} edu={edu} index={index} />
+              <EducationCard key={index} edu={edu} index={index} period={educationPeriods[index]} />
             ))}
           </div>
-          
+
           {/* Languages */}
           <div className="flex items-center gap-3 mb-6">
             <Languages className="h-6 w-6 text-primary" />
-            <h3 className="text-xl font-bold">Languages</h3>
+            <h3 className="text-xl font-bold">{t('sections.languages')}</h3>
           </div>
           
           <div className="flex flex-wrap gap-4">
-            {languages.map((lang, index) => (
+            {spokenLanguages.map((lang, index) => (
               <div key={index} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted">
                 <span className="font-medium">{lang.name}</span>
                 <span className="text-muted-foreground">—</span>
@@ -561,9 +514,9 @@ export default function Home() {
       <section id="contact" className="py-24 bg-background">
         <div className="container">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-center">Get in Touch</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-center">{t('contact.title')}</h2>
             <p className="text-lg text-muted-foreground mb-12 text-center">
-              Have a question or project in mind? Fill out the form below and I'll get back to you as soon as possible.
+              {t('contact.description')}
             </p>
             
             <div className="mb-12">
@@ -571,22 +524,22 @@ export default function Home() {
             </div>
 
             <div className="border-t border-border pt-12">
-              <h3 className="text-xl font-semibold mb-8 text-center">Or reach out directly:</h3>
+              <h3 className="text-xl font-semibold mb-8 text-center">{t('contact.reachOut')}</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <a href="mailto:huseyn.cavid.dev@gmail.com" className="text-center p-6 rounded-lg border border-border hover:bg-muted transition-colors">
                   <Mail className="h-8 w-8 mx-auto mb-3 text-primary" />
-                  <p className="font-medium mb-1">Email</p>
+                  <p className="font-medium mb-1">{t('contact.cards.email.label')}</p>
                   <p className="text-sm text-muted-foreground break-all">huseyn.cavid.dev@gmail.com</p>
                 </a>
                 <a href="tel:+994993442414" className="text-center p-6 rounded-lg border border-border hover:bg-muted transition-colors">
                   <Phone className="h-8 w-8 mx-auto mb-3 text-primary" />
-                  <p className="font-medium mb-1">Phone</p>
+                  <p className="font-medium mb-1">{t('contact.cards.phone.label')}</p>
                   <p className="text-sm text-muted-foreground">+994 99 344 24 14</p>
                 </a>
                 <a href="https://www.linkedin.com/in/huseyncavid" target="_blank" rel="noopener noreferrer" className="text-center p-6 rounded-lg border border-border hover:bg-muted transition-colors">
                   <Linkedin className="h-8 w-8 mx-auto mb-3 text-primary" />
-                  <p className="font-medium mb-1">LinkedIn</p>
-                  <p className="text-sm text-muted-foreground">Connect with me</p>
+                  <p className="font-medium mb-1">{t('contact.cards.linkedin.label')}</p>
+                  <p className="text-sm text-muted-foreground">{t('contact.cards.linkedin.subtitle')}</p>
                 </a>
               </div>
             </div>
@@ -598,8 +551,8 @@ export default function Home() {
       <footer className="py-8 border-t border-border">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <span>© {new Date().getFullYear()} Huseyn Cavid. All rights reserved.</span>
-            <span>Document Controller Lead • Azerbaijan, Baku</span>
+            <span>© {new Date().getFullYear()} {t('hero.name')}. {t('footer.copyright')}.</span>
+            <span>{t('footer.tagline')}</span>
           </div>
         </div>
       </footer>

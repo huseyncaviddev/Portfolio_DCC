@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Mail, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import { useT } from '@/contexts/LanguageContext';
 
 interface FormData {
   name: string;
@@ -11,6 +12,7 @@ interface FormData {
 }
 
 export default function ContactForm() {
+  const t = useT();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -30,28 +32,28 @@ export default function ContactForm() {
 
   const validateForm = (): boolean => {
     if (!formData.name.trim()) {
-      toast.error('Please enter your name');
+      toast.error(t('contact.validation.nameRequired'));
       return false;
     }
     if (!formData.email.trim()) {
-      toast.error('Please enter your email');
+      toast.error(t('contact.validation.emailRequired'));
       return false;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      toast.error('Please enter a valid email address');
+      toast.error(t('contact.validation.emailInvalid'));
       return false;
     }
     if (!formData.subject.trim()) {
-      toast.error('Please enter a subject');
+      toast.error(t('contact.validation.subjectRequired'));
       return false;
     }
     if (!formData.message.trim()) {
-      toast.error('Please enter a message');
+      toast.error(t('contact.validation.messageRequired'));
       return false;
     }
     if (formData.message.trim().length < 10) {
-      toast.error('Message must be at least 10 characters long');
+      toast.error(t('contact.validation.messageMinLength'));
       return false;
     }
     return true;
@@ -59,7 +61,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setIsLoading(true);
@@ -79,7 +81,7 @@ export default function ContactForm() {
       }
 
       setSubmitStatus('success');
-      toast.success('Message sent successfully! I\'ll get back to you soon.');
+      toast.success(t('contact.success.toast'));
       setFormData({
         name: '',
         email: '',
@@ -91,7 +93,7 @@ export default function ContactForm() {
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
       setSubmitStatus('error');
-      toast.error('Failed to send message. Please try again or email me directly.');
+      toast.error(t('contact.error.toast'));
       console.error('Contact form error:', error);
     } finally {
       setIsLoading(false);
@@ -103,7 +105,7 @@ export default function ContactForm() {
       {/* Name Field */}
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
-          Full Name
+          {t('contact.form.name.label')}
         </label>
         <input
           type="text"
@@ -111,7 +113,7 @@ export default function ContactForm() {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Your name"
+          placeholder={t('contact.form.name.placeholder')}
           className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
           disabled={isLoading}
         />
@@ -120,7 +122,7 @@ export default function ContactForm() {
       {/* Email Field */}
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-2">
-          Email Address
+          {t('contact.form.email.label')}
         </label>
         <input
           type="email"
@@ -128,7 +130,7 @@ export default function ContactForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="your.email@example.com"
+          placeholder={t('contact.form.email.placeholder')}
           className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
           disabled={isLoading}
         />
@@ -137,7 +139,7 @@ export default function ContactForm() {
       {/* Subject Field */}
       <div>
         <label htmlFor="subject" className="block text-sm font-medium mb-2">
-          Subject
+          {t('contact.form.subject.label')}
         </label>
         <input
           type="text"
@@ -145,7 +147,7 @@ export default function ContactForm() {
           name="subject"
           value={formData.subject}
           onChange={handleChange}
-          placeholder="What is this about?"
+          placeholder={t('contact.form.subject.placeholder')}
           className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
           disabled={isLoading}
         />
@@ -154,14 +156,14 @@ export default function ContactForm() {
       {/* Message Field */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
-          Message
+          {t('contact.form.message.label')}
         </label>
         <textarea
           id="message"
           name="message"
           value={formData.message}
           onChange={handleChange}
-          placeholder="Your message here..."
+          placeholder={t('contact.form.message.placeholder')}
           rows={6}
           className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
           disabled={isLoading}
@@ -173,7 +175,7 @@ export default function ContactForm() {
         <div className="flex items-center gap-3 p-4 rounded-lg bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800">
           <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400 flex-shrink-0" />
           <p className="text-sm text-green-800 dark:text-green-200">
-            Your message has been sent successfully!
+            {t('contact.success.title')}
           </p>
         </div>
       )}
@@ -182,7 +184,7 @@ export default function ContactForm() {
         <div className="flex items-center gap-3 p-4 rounded-lg bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800">
           <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0" />
           <p className="text-sm text-red-800 dark:text-red-200">
-            Failed to send message. Please try again.
+            {t('contact.error.title')}
           </p>
         </div>
       )}
@@ -197,18 +199,18 @@ export default function ContactForm() {
         {isLoading ? (
           <>
             <Loader2 className="h-5 w-5 animate-spin" />
-            Sending...
+            {t('contact.form.sending')}
           </>
         ) : (
           <>
             <Mail className="h-5 w-5" />
-            Send Message
+            {t('contact.form.submit')}
           </>
         )}
       </Button>
 
       <p className="text-xs text-muted-foreground text-center">
-        I typically respond within 24 hours.
+        {t('contact.form.helperText')}
       </p>
     </form>
   );

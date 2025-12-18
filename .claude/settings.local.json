@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npx tsc:*)",
+      "Bash(timeout 8 npm run dev:*)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm vitest run:*)",
+      "Bash(pnpm list:*)",
+      "Bash(node:*)",
+      "Bash(pnpm run build:*)"
+    ]
+  }
+}
