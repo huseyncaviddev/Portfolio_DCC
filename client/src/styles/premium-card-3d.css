@@ -1,0 +1,220 @@
+/**
+ * Premium 3D Card Hover - Production CSS
+ *
+ * Design: Enterprise SaaS (Linear, Vercel, Stripe style)
+ * Performance: GPU-accelerated, optimized for 60fps
+ * Accessibility: Respects prefers-reduced-motion
+ */
+
+/* ============================================
+   CARD CONTAINER
+   ============================================ */
+.premium-card-3d {
+  position: relative;
+
+  /* Dimensions - adjust as needed */
+  min-height: 200px;
+  padding: 24px;
+
+  /* Dark theme base */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+
+  /* 3D context - CRITICAL for tilt effect */
+  transform-style: preserve-3d;
+
+  /* Smooth transition - only transform (performance) */
+  transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+
+  /* GPU acceleration - creates composite layer */
+  will-change: transform;
+
+  /* Prevent layout shift */
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* Hover state - enhanced border */
+.premium-card-3d:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   GLOW LAYER (cursor-following light)
+   ============================================ */
+.premium-card-3d::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+
+  /* Initial state - hidden */
+  opacity: 0;
+
+  /* Will be updated via JS with radial gradient */
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(59, 130, 246, 0.15),
+    transparent 40%
+  );
+
+  /* Smooth fade in/out */
+  transition: opacity 0.3s ease;
+
+  /* Don't block pointer events */
+  pointer-events: none;
+
+  /* Subtle blur for premium feel */
+  filter: blur(20px);
+
+  /* Layer behind content */
+  z-index: 0;
+}
+
+.premium-card-3d:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   INNER GLOW (border highlight)
+   ============================================ */
+.premium-card-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+
+  /* Subtle inner glow */
+  background: radial-gradient(
+    800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.premium-card-3d:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   CARD CONTENT
+   ============================================ */
+.premium-card-content {
+  position: relative;
+  z-index: 2;
+
+  /* Subtle depth - content pops forward */
+  transform: translateZ(20px);
+
+  /* Prevent content from inheriting tilt */
+  transform-style: preserve-3d;
+}
+
+/* Icon - even more depth */
+.premium-card-icon {
+  transform: translateZ(30px);
+  transform-style: preserve-3d;
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .premium-card-3d {
+    /* Disable all animations */
+    transition: none !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+
+  .premium-card-3d::before,
+  .premium-card-3d::after {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   MOBILE - Disable 3D effect
+   ============================================ */
+@media (max-width: 768px) {
+  .premium-card-3d {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .premium-card-3d::before,
+  .premium-card-3d::after {
+    display: none;
+  }
+}
+
+/* ============================================
+   TOUCH DEVICES - Fallback
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+  .premium-card-3d {
+    transform: none !important;
+  }
+
+  .premium-card-3d::before,
+  .premium-card-3d::after {
+    opacity: 0 !important;
+  }
+}
+
+/* ============================================
+   GRID LAYOUT (for multiple cards)
+   ============================================ */
+.premium-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 24px;
+}
+
+/* ============================================
+   DARK THEME VARIATIONS
+   ============================================ */
+
+/* Darker variant */
+.premium-card-3d.dark-bg {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Lighter variant */
+.premium-card-3d.light-bg {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   LOADING STATE (optional)
+   ============================================ */
+.premium-card-3d.is-loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ============================================
+   PERFORMANCE NOTES
+   ============================================ */
+/*
+1. Only transform/opacity animated (GPU properties)
+2. will-change creates composite layer
+3. backface-visibility prevents subpixel issues
+4. No expensive properties (box-shadow on separate layer)
+5. Transition only necessary properties
+6. Hardware-accelerated blur on ::before
+*/

@@ -25,6 +25,7 @@ import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { use3DTilt } from "@/hooks/use3DTilt";
 import ContactForm from "@/components/ContactForm";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const experiences = [
   {
@@ -188,39 +189,84 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
   );
 }
 
-// Skill Card Component with Gradient
+// Skill Card Component with Premium 3D Effect
 function SkillCard({ category, items, index }: { category: string; items: string[]; index: number }) {
   const gradientRef = useCardGradient();
-  const { cardRef: tiltRef, tilt, isMobile, isHovering } = use3DTilt();
+  const { cardRef: tiltRef, tilt, scale, isMobile, isHovering } = use3DTilt();
+  const { theme } = useTheme();
   const icons = [FileText, Database, Code, Shield, BarChart3];
   const Icon = icons[index % icons.length];
-  
+
+  // Theme-aware colors
+  const isDark = theme === 'dark';
+  const glowColor = isDark
+    ? `rgba(255, 255, 255, ${0.08 * tilt.intensity})`
+    : `rgba(20, 184, 166, ${0.06 * tilt.intensity})`; // Teal-500
+
+  const edgeGlowColor = isDark
+    ? `rgba(255, 255, 255, 0.04)`
+    : `rgba(20, 184, 166, 0.03)`;
+
+  const borderColorRest = isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(20, 184, 166, 0.08)';
+  const borderColorHover = isDark ? 'rgba(255, 255, 255, 0.12)' : 'rgba(20, 184, 166, 0.15)';
+
+  const bgColorRest = isDark ? 'rgba(255, 255, 255, 0.02)' : 'rgba(255, 255, 255, 0.7)';
+  const bgColorHover = isDark ? 'rgba(255, 255, 255, 0.04)' : 'rgba(255, 255, 255, 0.85)';
+
+  const shadowRest = isDark
+    ? '0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 4px 8px -4px rgba(0, 0, 0, 0.2)'
+    : '0 4px 12px -4px rgba(0, 0, 0, 0.08), 0 2px 6px -2px rgba(0, 0, 0, 0.05)';
+
+  const shadowHover = isDark
+    ? `0 20px 40px -15px rgba(0, 0, 0, 0.4), 0 8px 16px -8px rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.05)`
+    : `0 16px 32px -12px rgba(20, 184, 166, 0.15), 0 8px 16px -8px rgba(0, 0, 0, 0.1), inset 0 1px 0 0 rgba(20, 184, 166, 0.08)`;
+
   return (
-    <div 
+    <div
       ref={tiltRef}
-      className="relative rounded-lg overflow-hidden transition-all duration-300 h-full"
+      className="relative rounded-xl h-full group"
       style={!isMobile ? {
-        perspective: '1000px',
-        transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
+        transform: `perspective(1000px) rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) scale(${scale})`,
         transformStyle: 'preserve-3d',
-        transition: 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        willChange: 'transform',
+        // @ts-ignore - CSS variables
+        '--mx': `${tilt.glowX}%`,
+        '--my': `${tilt.glowY}%`,
       } : {}}
     >
-      <div
-        className="absolute inset-0 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        style={{
-          background: `radial-gradient(circle at ${tilt.glowX}% ${tilt.glowY}%, rgba(0, 200, 200, ${0.3 * tilt.intensity}) 0%, rgba(0, 150, 150, ${0.15 * tilt.intensity}) 25%, transparent 60%)`,
-          filter: 'blur(25px)',
-          opacity: isHovering ? 1 : 0,
-          transition: 'opacity 0.3s ease-out',
-        }}
-      />
-      <Card className="transition-all duration-300 relative z-10 h-full flex flex-col"
+      <Card className="relative z-10 h-full flex flex-col rounded-xl border backdrop-blur-sm overflow-hidden"
         style={!isMobile ? {
-          boxShadow: `0 ${8 + tilt.intensity * 12}px ${20 + tilt.intensity * 20}px rgba(0, 200, 200, ${0.15 + tilt.intensity * 0.15})`,
-          transition: 'box-shadow 0.15s ease-out',
+          backgroundColor: isHovering ? bgColorHover : bgColorRest,
+          borderColor: isHovering ? borderColorHover : borderColorRest,
+          boxShadow: isHovering ? shadowHover : shadowRest,
+          transition: 'background-color 0.3s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
+          transform: 'translateZ(40px)',
         } : {}}
       >
+        {/* Cursor-following spotlight overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none z-50"
+          style={{
+            background: isDark
+              ? `radial-gradient(circle 350px at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, ${0.12 * tilt.intensity}), rgba(255, 255, 255, ${0.04 * tilt.intensity}) 40%, transparent 70%)`
+              : `radial-gradient(circle 350px at var(--mx, 50%) var(--my, 50%), rgba(20, 184, 166, ${0.08 * tilt.intensity}), rgba(20, 184, 166, ${0.02 * tilt.intensity}) 40%, transparent 70%)`,
+            mixBlendMode: isDark ? 'overlay' : 'normal',
+            opacity: isHovering ? 1 : 0,
+            transition: 'opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1)',
+          }}
+        />
+
+        {/* Subtle edge glow (static background) */}
+        <div
+          className="absolute inset-0 pointer-events-none z-0"
+          style={{
+            background: isDark
+              ? `radial-gradient(circle 600px at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.02), transparent 60%)`
+              : `radial-gradient(circle 600px at var(--mx, 50%) var(--my, 50%), rgba(20, 184, 166, 0.015), transparent 60%)`,
+            opacity: isHovering ? 1 : 0,
+            transition: 'opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
+          }}
+        />
         <CardContent className="p-6 flex flex-col h-full">
           <div className="flex items-center gap-3 mb-4 flex-shrink-0">
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -354,11 +400,7 @@ export default function Home() {
                 <Moon className="h-5 w-5 text-muted-foreground" />
               )}
             </button>
-            <a href="mailto:huseyn.cavid.dev@gmail.com">
-              <Button size="sm" className="bg-primary hover:bg-primary/90">
-                Get in Touch
-              </Button>
-            </a>
+           
           </div>
         </div>
       </nav>
@@ -474,8 +516,8 @@ export default function Home() {
             <Code className="h-8 w-8 text-primary" />
             <h2 className="text-3xl md:text-4xl font-display font-bold">Core Competencies</h2>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
             {Object.entries(skills).map(([category, items], index) => (
               <SkillCard key={category} category={category} items={items} index={index} />
             ))}

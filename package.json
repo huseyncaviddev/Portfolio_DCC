@@ -4,11 +4,12 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "vite --host",
+    "build": "vite build --mode production",
+    "preview": "vite preview --host",
     "server": "...",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "postinstall": "pnpm store prune"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.693.0",
@@ -114,6 +115,18 @@
     },
     "overrides": {
       "tailwindcss>nanoid": "3.3.7"
+    },
+    "peerDependencyRules": {
+      "ignoreMissing": ["@babel/core"]
+    },
+    "packageExtensions": {
+      "react": {
+        "peerDependenciesMeta": {
+          "@types/react": {
+            "optional": true
+          }
+        }
+      }
     }
   }
 }
