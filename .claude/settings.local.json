@@ -9,7 +9,10 @@
       "Bash(pnpm vitest run:*)",
       "Bash(pnpm list:*)",
       "Bash(node:*)",
-      "Bash(pnpm run build:*)"
+      "Bash(pnpm run build:*)",
+      "Bash(rm:*)",
+      "Bash(pnpm install)",
+      "Bash(pnpm -v:*)"
     ]
   }
 }

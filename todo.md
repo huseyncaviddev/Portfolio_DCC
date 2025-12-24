@@ -13,7 +13,7 @@
 - [x] Add professional tagline to hero section
 - [x] Implement scroll-aware navbar with hide/show animations
 - [x] Add interactive gradient hover effect to all cards
-- [x] Remove Manus badge from bottom-right
+- [x] Remove Manus badge and all Manus references from codebase
 - [x] Add dark/light mode toggle button to navbar
 - [x] Implement scroll-spy feature for navbar link highlighting
 - [x] Implement smooth scroll animation for navbar links
