@@ -354,15 +354,14 @@ export default function Home() {
   const scrollToSection = useSmoothScroll();
 
   // Get translated data
-  const experiences =
-    tObject<
-      Array<{
-        title: string;
-        company: string;
-        location: string;
-        highlights: string[];
-      }>
-    >("experience.items");
+  const experiences = tObject<
+    Array<{
+      title: string;
+      company: string;
+      location: string;
+      highlights: string[];
+    }>
+  >("experience.items");
   const education =
     tObject<Array<{ degree: string; field: string; institution: string }>>(
       "education.items"
@@ -404,13 +403,28 @@ export default function Home() {
             : "-translate-y-full opacity-0"
         }`}
       >
-        <div className="container flex items-center justify-between h-16">
-          <img
-            src="/avatar.png"
-            alt={t("hero.altText")}
-            className="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-sm"
-          />
-          <div className="hidden md:flex items-center gap-8">
+        <div className="container grid h-16 grid-cols-3 items-center">
+          {/* LEFT: avatar centered in its column */}
+          <div className="flex justify-center md:justify-start">
+            {/* Container: Square with rounded corners (rounded-lg) */}
+            <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-primary/20 shadow-sm shrink-0 bg-muted">
+              <img
+                src="/avatar.png"
+                alt={t("hero.altText")}
+                className="
+                  w-full 
+                  h-full 
+                  object-cover 
+                  object-top   /* Changed to 'object-top' so the head isn't cut off */
+                  block
+                "
+                draggable={false}
+              />
+            </div>
+          </div>
+
+          {/* CENTER: nav links perfectly centered */}
+          <div className="hidden md:flex items-center justify-center gap-8">
             {navLinks.map(link => (
               <a
                 key={link.id}
@@ -429,7 +443,9 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-4">
+
+          {/* RIGHT: controls aligned right */}
+          <div className="flex items-center justify-end gap-4">
             <LanguageSwitcher />
             <button
               onClick={toggleTheme}
