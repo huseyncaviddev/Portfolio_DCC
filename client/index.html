@@ -1,20 +1,59 @@
 <!doctype html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+    <meta name="description" content="Huseyn Cavid - Document Controller Lead with expertise in EDMS, document management systems, and process automation." />
+    <meta name="theme-color" content="#14b8a6" />
+
     <title>Huseyn Cavid | Document Controller Lead</title>
+
+    <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- DNS prefetch for analytics (if used) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- Preload critical font -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <!-- Preload avatar image (above the fold) -->
+    <link rel="preload" href="/avatar.webp" as="image" type="image/webp" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/avatar.webp" />
+
+    <!-- Critical inline styles for initial render -->
+    <style>
+      /* Prevent FOUC */
+      html { visibility: hidden; }
+      html.hydrated { visibility: visible; }
+      /* Base loading state */
+      body {
+        margin: 0;
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        background: #fafafa;
+      }
+      .dark body { background: #0a0a0a; }
+      #root { min-height: 100vh; }
+    </style>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Mark as hydrated to show content
+      document.documentElement.classList.add('hydrated');
+    </script>
   </body>
-
 </html>

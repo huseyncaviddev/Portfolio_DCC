@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -24,9 +25,12 @@ import { useCardGradient } from "@/hooks/useCardGradient";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { use3DTilt } from "@/hooks/use3DTilt";
-import ContactForm from "@/components/ContactForm";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { OptimizedImage } from "@/components/OptimizedImage";
+
+// Lazy load ContactForm since it's below the fold
+const ContactForm = lazy(() => import("@/components/ContactForm"));
 
 // Language-agnostic data
 const experienceWebsites = ["kolin.com.tr", "kolin.com.tr", "clopos.com"];
@@ -408,16 +412,13 @@ export default function Home() {
           <div className="flex justify-center md:justify-start">
             {/* Container: Square with rounded corners (rounded-lg) */}
             <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-primary/20 shadow-sm shrink-0 bg-muted">
-              <img
+              <OptimizedImage
                 src="/avatar.png"
                 alt={t("hero.altText")}
-                className="
-                  w-full 
-                  h-full 
-                  object-cover 
-                  object-top   /* Changed to 'object-top' so the head isn't cut off */
-                  block
-                "
+                className="w-full h-full object-cover object-top block"
+                width={48}
+                height={48}
+                priority
                 draggable={false}
               />
             </div>
@@ -667,7 +668,9 @@ export default function Home() {
             </p>
 
             <div className="mb-12">
-              <ContactForm />
+              <Suspense fallback={<div className="h-64 flex items-center justify-center text-muted-foreground">Loading...</div>}>
+                <ContactForm />
+              </Suspense>
             </div>
 
             <div className="border-t border-border pt-12">
