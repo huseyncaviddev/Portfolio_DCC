@@ -22,7 +22,7 @@ const translations = {
       availability: "Available for opportunities",
       name: "Huseyn Cavid",
       tagline: "Building Compliant, Scalable Document Control Ecosystems",
-      role: "Document Controller Lead",
+      role: "Document Control Lead",
       description:
         "Document Control Lead with a proven track record of building fast, scalable, and fully compliant document control ecosystems for large-scale construction and industrial projects. Expert in EDMS administration, lifecycle governance, and workflow automation using PowerShell and Python.",
       location: "Azerbaijan, Baku",
@@ -112,7 +112,7 @@ const translations = {
     // Footer
     footer: {
       copyright: "All rights reserved",
-      tagline: "Document Controller Lead • Azerbaijan, Baku",
+      tagline: "Document Control Lead • Azerbaijan, Baku",
     },
 
     // Competencies (Skills with arrays)
@@ -180,7 +180,7 @@ const translations = {
           ],
         },
         {
-          title: "Document Controller",
+          title: "Document Control",
           company: "KOLIN Construction",
           location: "Kalbajar, Azerbaijan",
           highlights: [
