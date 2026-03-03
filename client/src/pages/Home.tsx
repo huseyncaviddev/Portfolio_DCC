@@ -33,7 +33,7 @@ import { OptimizedImage } from "@/components/OptimizedImage";
 const ContactForm = lazy(() => import("@/components/ContactForm"));
 
 // Language-agnostic data
-const experienceWebsites = ["kolin.com.tr", "kolin.com.tr", "clopos.com"];
+const experienceWebsites = ["", "kolin.com.tr", "kolin.com.tr", "clopos.com"];
 
 const educationPeriods = ["09/2021 - 06/2023", "09/2017 - 06/2021"];
 
@@ -376,7 +376,8 @@ export default function Home() {
 
   // Date periods with localized "Present"
   const experiencePeriods = [
-    `06/2024 - ${t("common.present")}`,
+    `03/2026 - ${t("common.present")}`,
+    "06/2024 - 02/2026",
     "04/2021 - 06/2024",
     "06/2018 - 02/2021",
   ];

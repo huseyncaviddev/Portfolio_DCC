@@ -22,9 +22,9 @@ const translations = {
       availability: "Available for opportunities",
       name: "Huseyn Cavid",
       tagline: "Building Compliant, Scalable Document Control Ecosystems",
-      role: "Document Control Lead",
+      role: "Lead Document Controller",
       description:
-        "Document Control Lead with a proven track record of building fast, scalable, and fully compliant document control ecosystems for large-scale construction and industrial projects. Expert in EDMS administration, lifecycle governance, and workflow automation using PowerShell and Python.",
+        "Results-driven Lead Document Controller with 4+ years of experience managing complex document ecosystems on large-scale international engineering and construction projects. Expert in EDMS administration, FIDIC-based document workflows, MDR governance, and cross-disciplinary coordination across 20+ subcontractors. Unique advantage: hands-on automation skills (PowerShell, Python) that have reduced manual processing time by 60%+, combined with deep IT infrastructure experience. Currently driving document control excellence at Wood Energy Group.",
       location: "Azerbaijan, Baku",
       altText: "Huseyn Cavid",
     },
@@ -49,7 +49,7 @@ const translations = {
     // About
     about: {
       description:
-        "I am a Document Control Lead with extensive experience in managing document control ecosystems for large-scale construction projects. My expertise lies in EDMS administration, lifecycle governance, revision control, and stakeholder coordination across Contractor–Engineer–Employer environments. I am highly skilled in workflow automation using PowerShell and Python, having reduced manual workloads by 60%+ and transformed document turnaround speed and accuracy. Known for strong operational discipline, precision, and a process-driven mindset, ensuring zero deviation from FIDIC, project procedures, and QA/QC requirements.",
+        "I am a Lead Document Controller with 4+ years of experience managing complex document ecosystems on large-scale international engineering and construction projects. My expertise spans EDMS administration, MDR governance, FIDIC-based document workflows, QA/QC validation, and cross-disciplinary coordination across 20+ subcontractors. I am highly skilled in workflow automation using PowerShell, Python, and n8n, having reduced manual workloads by 60%+ and transformed document turnaround speed and accuracy. Currently driving document control excellence at Wood Energy Group in Baku.",
     },
 
     // Contact
@@ -112,54 +112,59 @@ const translations = {
     // Footer
     footer: {
       copyright: "All rights reserved",
-      tagline: "Document Control Lead • Azerbaijan, Baku",
+      tagline: "Lead Document Controller • Azerbaijan, Baku",
     },
 
     // Competencies (Skills with arrays)
     competencies: {
       documentControl: {
-        title: "Document Control & Governance",
+        title: "Document Control",
         items: [
-          "Document Control Governance",
-          "Documentation Management",
-          "Document Control Lifecycle (End-to-End)",
-          "Revision Control & Compliance",
-          "Team Leadership & Training",
+          "MDR Governance",
+          "Transmittal Management",
+          "Revision Control",
+          "QA/QC Validation",
+          "Lifecycle Management",
         ],
       },
       edms: {
-        title: "EDMS Expertise",
+        title: "EDMS & Platforms",
         items: [
-          "EDMS Administration (Aconex, SharePoint, FileOrbis)",
-          "Workflow Design & Optimization",
-          "Metadata Structuring & Numbering Systems",
-          "MDR & DDM Management",
-          "Permission & Access Control",
+          "Internal EDMS (Wood Energy)",
+          "Aconex (KOLIN)",
+          "SharePoint",
+          "Custom EDMS Solutions",
+          "FIDIC-based Workflow Management",
         ],
       },
       automation: {
-        title: "Automation & Tools",
+        title: "Automation & Dev",
         items: [
-          "Python Automation (DCC scripts)",
-          "PowerShell Automation",
-          "Advanced Excel (Dashboards, Trackers, PivotTables)",
+          "PowerShell Scripting",
+          "Python Automation",
+          "Workflow Automation (n8n)",
+          "Advanced Excel & VBA",
           "PDF Tools (Markups, Stamps, Merging)",
         ],
       },
       quality: {
-        title: "Quality & Compliance",
+        title: "IT Infrastructure",
         items: [
-          "Audit Preparation & Document Integrity",
-          "Controlled Document Distribution",
-          "Risk Identification in Document Flow",
+          "Server Configuration & Administration",
+          "Network Setup (UniFi, Routers, Switches)",
+          "OS Installation & Maintenance",
+          "Hardware Diagnostics & Repair",
+          "POS System Integration",
         ],
       },
       reporting: {
-        title: "Reporting & Communication",
+        title: "Soft Skills",
         items: [
+          "Cross-functional Coordination",
+          "Stakeholder Communication",
+          "Executive Reporting",
+          "Team Leadership & Training",
           "KPI Reporting & Analytics",
-          "Dashboard Creation",
-          "Status Reporting & Progress Tracking",
         ],
       },
     },
@@ -168,26 +173,44 @@ const translations = {
     experience: {
       items: [
         {
+          title: "Lead Document Controller",
+          company: "Wood Energy Group",
+          location: "Baku, Azerbaijan",
+          highlights: [
+            "Acting as the central document control interface between Client and Contractor organisations, managing all formal technical correspondence and ensuring full traceability of document exchanges.",
+            "Reviewing, validating, and processing all incoming Contractor submittals against project document control procedures, contractual requirements, and applicable engineering standards prior to Client distribution.",
+            "Governing transmittal workflows end-to-end — verifying completeness, enforcing submission protocols, and maintaining auditable records of all document movements across project parties.",
+            "Monitoring and controlling document review cycles, tracking response deadlines, and escalating overdue actions to ensure zero impact on project schedule.",
+            "Maintaining the Master Document Register (MDR) with accurate revision status, review codes, and submission history across all engineering disciplines.",
+            "Ensuring strict compliance with document numbering conventions, metadata standards, and revision control protocols on all documents entering and leaving the project EDMS.",
+          ],
+        },
+        {
           title: "Document Control Lead",
           company: "KOLIN Construction",
           location: "Sitalchay, Azerbaijan",
           highlights: [
-            "Architected and managed complete document lifecycle (creation, review, approval, distribution, archiving) in line with FIDIC-based requirements",
-            "Directed full control over all outgoing and incoming documentation (TRN, LET, STQ, MAR, MIR, ITP, SHD, MOM, DR, NCR)",
-            "Led MDR governance, enforcing strict numbering, revision, and metadata protocols across all disciplines",
-            "Designed and implemented structured server architecture for 5+ engineering disciplines and 20+ subcontractors",
-            "Developed automation tools (PowerShell/Python) reducing manual processing time by over 60%",
+            "Architected and managed the complete document lifecycle (creation, review, approval, distribution, archiving) in line with project procedures and FIDIC-based requirements.",
+            "Directed full control over all outgoing and incoming documentation (TRN, LET, STQ, MAR, MIR, ITP, SHD, MOM, DR, NCR), ensuring zero errors and full traceability.",
+            "Led MDR governance, enforcing strict numbering, revision, and metadata protocols across all disciplines.",
+            "Designed and implemented structured server architecture optimising document flow across 5+ engineering disciplines and 20+ subcontractors.",
+            "Developed and deployed automation tools (PowerShell/Python) to streamline filing, naming, routing, and archiving — reducing manual processing time by over 60%.",
+            "Coordinated seamless document submissions between the Contractor, Engineer (Proyapi), and Employer (STP) via EDMS and automated Outlook workflows.",
+            "Performed high-precision QA/QC validation prior to official issuance, including formatting, signatures, metadata, and drawing link checks.",
+            "Monitored approval cycles, outstanding actions, deadlines, and comment resolutions; prepared weekly executive-level status reports.",
+            "Strengthened cross-disciplinary coordination across civil, mechanical, electrical, fit-out, HSE, QC, and procurement teams.",
           ],
         },
         {
-          title: "Document Control",
+          title: "Document Controller",
           company: "KOLIN Construction",
           location: "Kalbajar, Azerbaijan",
           highlights: [
-            "Controlled all incoming/outgoing project documentation across civil, mechanical, electrical disciplines",
-            "Maintained MDR ensuring continuous accuracy, revision integrity, and audit readiness",
-            "Ensured compliance with document numbering, revision control, and metadata rules",
-            "Monitored EDMS workflows and email-based routing systems",
+            "Controlled all incoming/outgoing project documentation across civil, mechanical, electrical, and other engineering disciplines.",
+            "Registered, verified, formatted, and prepared documents prior to official issuance; maintained MDR with continuous revision integrity.",
+            "Managed technical submissions including MAR, MES, and other project deliverables; ensured proper routing and distribution to stakeholders.",
+            "Monitored EDMS workflows and email-based routing systems; submitted documents for approval and tracked review outcomes.",
+            "Implemented consistent digital and physical storage structures, ensuring full compliance with document numbering, revision control, and metadata rules.",
           ],
         },
         {
@@ -195,10 +218,10 @@ const translations = {
           company: "Clopos POS",
           location: "Baku, Azerbaijan",
           highlights: [
-            "Managed POS system operational logic across multiple restaurant environments, optimizing process workflows and ensuring system stability.",
-            "Installed and configured servers and network infrastructure, including routers, switches, and UniFi access points.",
-            "Performed diagnostics, maintenance, and fault resolution for core hardware components (SSD, HDD, RAM, CPU).",
-            "Performed OS installation, printer configuration, and general IT support",
+            "Provided technical support for POS system operations across multiple restaurant and hospitality clients.",
+            "Installed and configured servers, networks, routers, switches, and UniFi access points; troubleshot connectivity issues.",
+            "Maintained and repaired hardware systems (SSD, HDD, RAM, CPU); performed OS installation, printer configuration, and general IT support.",
+            "Integrated diverse hardware devices into the Clopos POS ecosystem, ensuring compatibility and uninterrupted operations.",
           ],
         },
       ],
@@ -223,9 +246,11 @@ const translations = {
     // Spoken Languages
     spokenLanguages: {
       items: [
-        { name: "English", level: "Upper-Intermediate" },
-        { name: "Russian", level: "Intermediate" },
-        { name: "German", level: "Beginner" },
+        { name: "Azerbaijani", level: "Native" },
+        { name: "English", level: "Upper-Intermediate (B2)" },
+        { name: "Russian", level: "Intermediate (B1)" },
+        { name: "Turkish", level: "Professional Working Proficiency" },
+        { name: "German", level: "Elementary (A2)" },
       ],
     },
   },
@@ -251,9 +276,9 @@ const translations = {
       name: "Hüseyn Cavid",
       tagline:
         "Normativ tələblərə cavab verən, ölçülə bilən sənəd idarəetmə sistemlərinin qurulması",
-      role: "Sənədləşmə Üzrə Baş Mütəxəssis",
+      role: "Baş Sənəd Nəzarətçisi",
       description:
-        "Böyük miqyaslı tikinti və sənaye layihələri üzrə sürətli, miqyaslana bilən və tam normativ tələblərə uyğun sənəd nəzarət ekosistemlərinin qurulması sahəsində sübut olunmuş peşəkar təcrübəyə malik Sənədləşmə Üzrə Baş Mütəxəssis. EDMS platformalarının idarə olunması, sənədlərin bütün həyat dövrü üzrə nəzarəti, eləcə də PowerShell və Python vasitəsilə iş axınlarının avtomatlaşdırılması üzrə yüksək ixtisaslaşmaya malikəm.",
+        "Böyük miqyaslı beynəlxalq mühəndislik və tikinti layihələrində mürəkkəb sənəd ekosistemlərini idarə etmək üzrə 4+ illik təcrübəyə malik nəticəyönümlü Baş Sənəd Nəzarətçisi. EDMS idarəçiliyi, FIDIC əsaslı sənəd iş axınları, MDR idarəetməsi və 20+ subpodratçı üzrə çoxintizamlı koordinasiya sahəsində ekspert. Unikal üstünlük: əl ilə işləmə vaxtını 60%+ azaldan avtomatlaşdırma bacarıqları (PowerShell, Python) ilə birlikdə dərin İT infrastruktur təcrübəsi. Hazırda Wood Energy Group-da sənəd nəzarəti mükəmməlliyini irəli aparır.",
       location: "Azərbaycan, Bakı",
       altText: "Hüseyn Cavid",
     },
@@ -278,7 +303,7 @@ const translations = {
     // About
     about: {
       description:
-        "Mən böyük miqyaslı tikinti layihələrində sənəd nəzarəti ekosistemlərinin idarə olunması üzrə geniş təcrübəyə malik Sənədləşmə Üzrə Baş Mütəxəssisəm. İxtisas sahəmə EDMS sistemlərinin idarə edilməsi, sənədlərin həyat dövrü üzrə nəzarəti, review və revision prosesləri, həmçinin İcraçı–Məsləhətçi–Müştəri mühitində maraqlı tərəflər arasında effektiv koordinasiya daxildir. PowerShell və Python vasitəsilə iş axınlarının avtomatlaşdırılması sahəsində yüksək səviyyədə bacarıqlıyam. Bu avtomatlaşdırma prosesi nəticəsində əl ilə görülən iş yükünü 60%-dən çox azaltmış, sənəd dövriyyəsinin sürətini və dəqiqliyini əhəmiyyətli dərəcədə artırmışam.",
+        "Mən böyük miqyaslı beynəlxalq mühəndislik və tikinti layihələrində mürəkkəb sənəd ekosistemlərini idarə etmək üzrə 4+ illik təcrübəyə malik Baş Sənəd Nəzarətçisiyəm. İxtisas sahəmə EDMS idarəçiliyi, MDR idarəetməsi, FIDIC əsaslı sənəd iş axınları, QA/QC yoxlaması və 20+ subpodratçı üzrə çoxintizamlı koordinasiya daxildir. PowerShell, Python və n8n vasitəsilə iş axınlarının avtomatlaşdırılması sahəsində yüksək bacarıqlıyam, bu da əl ilə işləmə vaxtını 60%+ azaltmağa imkan verib. Hal-hazırda Bakıda Wood Energy Group-da sənəd nəzarəti mükəmməlliyini irəli aparıram.",
     },
 
     // Contact
@@ -342,54 +367,59 @@ const translations = {
     // Footer
     footer: {
       copyright: "Bütün hüquqlar qorunur",
-      tagline: "Sənədləşmə Üzrə Baş Mütəxəssis • Azərbaycan, Bakı",
+      tagline: "Baş Sənəd Nəzarətçisi • Azərbaycan, Bakı",
     },
 
     // Competencies (Skills with arrays)
     competencies: {
       documentControl: {
-        title: "Sənəd Nəzarəti və İdarəetmə",
+        title: "Sənəd Nəzarəti",
         items: [
-          "Sənəd Nəzarəti İdarəetməsi",
-          "Sənədləşdirmə İdarəçiliyi",
-          "Sənəd Nəzarəti Həyat Dövrü (Tam)",
-          "Yenidən Baxış və Uyğunluq",
-          "Komanda Rəhbərliyi və Təlim",
+          "MDR İdarəetməsi",
+          "Ötürmə İdarəetməsi",
+          "Reviziya Nəzarəti",
+          "QA/QC Yoxlaması",
+          "Həyat Dövrü İdarəetməsi",
         ],
       },
       edms: {
-        title: "EDMS Ekspertizası",
+        title: "EDMS və Platformlar",
         items: [
-          "EDMS İdarəetməsi (Aconex, SharePoint, FileOrbis)",
-          "İş Axınının Dizaynı və Optimallaşdırılması",
-          "Metadata Strukturlaşdırılması və Nömrələmə Sistemləri",
-          "MDR və DDM İdarəetməsi",
-          "İcazə və Giriş Nəzarəti",
+          "Daxili EDMS (Wood Energy)",
+          "Aconex (KOLIN)",
+          "SharePoint",
+          "Xüsusi EDMS Həlləri",
+          "FIDIC Əsaslı İş Axını İdarəetməsi",
         ],
       },
       automation: {
-        title: "Avtomatlaşdırma və Alətlər",
+        title: "Avtomatlaşdırma və İnkişaf",
         items: [
-          "Python Avtomatlaşdırması (DCC skriptləri)",
-          "PowerShell Avtomatlaşdırması",
-          "Qabaqcıl Excel (İdarə Panelləri, İzləyicilər, PivotTables)",
+          "PowerShell Skriptinq",
+          "Python Avtomatlaşdırması",
+          "İş Axını Avtomatlaşdırması (n8n)",
+          "Qabaqcıl Excel və VBA",
           "PDF Alətləri (İşarələmə, Möhürlər, Birləşdirmə)",
         ],
       },
       quality: {
-        title: "Keyfiyyət və Uyğunluq",
+        title: "İT İnfrastrukturu",
         items: [
-          "Audit Hazırlığı və Sənəd Bütövlüyü",
-          "Nəzarət olunan Sənəd Paylanması",
-          "Sənəd Axınında Risk Müəyyənləşdirilməsi",
+          "Server Konfiqurasiyası və İdarəetmə",
+          "Şəbəkə Qurulumu (UniFi, Router, Switch)",
+          "OS Quraşdırılması və Baxımı",
+          "Avadanlıq Diaqnostikası və Təmiri",
+          "POS Sistemi İnteqrasiyası",
         ],
       },
       reporting: {
-        title: "Hesabat və Ünsiyyət",
+        title: "Soft Bacarıqlar",
         items: [
+          "Çoxfunksiyalı Koordinasiya",
+          "Maraqlı Tərəflərlə Əlaqə",
+          "Rəhbərliyə Hesabat",
+          "Komanda Rəhbərliyi və Təlim",
           "KPI Hesabatı və Analitika",
-          "İdarə Paneli Yaradılması",
-          "Status Hesabatı və Tərəqqi İzləmə",
         ],
       },
     },
@@ -398,26 +428,44 @@ const translations = {
     experience: {
       items: [
         {
+          title: "Baş Sənəd Nəzarətçisi",
+          company: "Wood Energy Group",
+          location: "Bakı, Azərbaycan",
+          highlights: [
+            "Müştəri və Podratçı təşkilatları arasında mərkəzi sənəd nəzarəti interfeysi kimi fəaliyyət göstərmək, bütün rəsmi texniki yazışmaları idarə etmək və sənəd mübadiləsinin tam izlənə bilməsini təmin etmək.",
+            "Rəsmi paylanmadan əvvəl bütün daxil olan Podratçı təqdimatlarını layihə sənəd nəzarəti prosedurlarına, müqavilə tələblərinə və tətbiq edilən mühəndislik standartlarına uyğun nəzərdən keçirmək, yoxlamaq və emal etmək.",
+            "Ötürmə iş axınlarını başdan sona idarə etmək — tamlığı yoxlamaq, təqdimat protokollarını tətbiq etmək və layihə tərəfləri arasında bütün sənəd hərəkətlərinin auditvari qeydlərini saxlamaq.",
+            "Sənəd nəzərdən keçirmə tsiklərini izləmək və nəzarət etmək, cavab müddətlərini izləmək və layihə cədvəlinə sıfır təsiri təmin etmək üçün gecikmiş hərəkətlər barədə eskalasiya etmək.",
+            "Bütün mühəndislik intizamları üzrə dəqiq reviziya statusu, nəzərdən keçirmə kodları və təqdimat tarixi ilə Ana Sənəd Reyestrini (MDR) saxlamaq.",
+            "Layihə EDMS-inə daxil olan və çıxan bütün sənədlərdə sənəd nömrələmə konvensiyalarına, metadata standartlarına və reviziya nəzarəti protokollarına ciddi uyğunluğu təmin etmək.",
+          ],
+        },
+        {
           title: "Sənədləşmə Üzrə Baş Mütəxəssis",
           company: "KOLIN İnşaat",
           location: "Sitalçay, Azərbaycan",
           highlights: [
-            "FIDIC əsaslı tələblərə uyğun olaraq tam sənəd həyat dövrünün (yaradılması, nəzərdən keçirilməsi, təsdiqi, paylanması, arxivləşdirilməsi) arxitekturası və idarə edilməsi",
-            "Bütün gedən və gələn sənədlər üzərində tam nəzarət (TRN, LET, STQ, MAR, MIR, ITP, SHD, MOM, DR, NCR)",
-            "Bütün disiplinlər üzrə ciddi nömrələmə, yenidən baxış və metadata protokollarının tətbiqi ilə MDR idarəetməsi",
-            "5+ mühəndislik disiplini və 20+ subpodratçı üçün strukturlaşdırılmış server arxitekturasının dizaynı və tətbiqi",
-            "Əl ilə işləmə vaxtını 60%-dən çox azaldan avtomatlaşdırma alətlərinin (PowerShell/Python) hazırlanması",
+            "FIDIC əsaslı tələblərə uyğun olaraq tam sənəd həyat dövrünün (yaradılması, nəzərdən keçirilməsi, təsdiqi, paylanması, arxivləşdirilməsi) arxitekturası və idarə edilməsi.",
+            "Sıfır xəta və tam izlənə bilmə ilə bütün gedən və gələn sənədlər üzərində tam nəzarət (TRN, LET, STQ, MAR, MIR, ITP, SHD, MOM, DR, NCR).",
+            "Bütün disiplinlər üzrə ciddi nömrələmə, yenidən baxış və metadata protokollarının tətbiqi ilə MDR idarəetməsinin aparılması.",
+            "5+ mühəndislik intizamı və 20+ subpodratçı üzrə sənəd axınını optimallaşdıran strukturlaşdırılmış server arxitekturasının dizaynı və tətbiqi.",
+            "Fayl, adlandırma, marşrutlaşdırma və arxivləşdirməni sadələşdirmək üçün avtomatlaşdırma alətlərinin (PowerShell/Python) işlənib hazırlanması və tətbiqi — əl ilə işləmə vaxtını 60%-dən çox azaltmaq.",
+            "EDMS və avtomatlaşdırılmış Outlook iş axınları vasitəsilə Podratçı, Mühəndis (Proyapi) və İşəgötürən (STP) arasında problemsiz sənəd təqdimatlığının koordinasiyası.",
+            "Rəsmi verilişdən əvvəl yüksək dəqiqlikli QA/QC yoxlaması, o cümlədən formatlaşdırma, imzalar, metadata və çertyoj link yoxlamaları.",
+            "Təsdiq tsikllərinin, gözlənilən hərəkətlərin, son tarixlərin və şərh həllərinin monitorinqi; həftəlik icraçı səviyyəli status hesabatlarının hazırlanması.",
+            "Civil, mexaniki, elektrik, interyur, HSE, QC və satınalma komandaları arasında çoxintizamlı koordinasiyanın gücləndirilməsi.",
           ],
         },
         {
-          title: "Sənədləşmə Üzrə Mütəxəssis",
+          title: "Sənəd Nəzarətçisi",
           company: "KOLIN İnşaat",
           location: "Kəlbəcər, Azərbaycan",
           highlights: [
-            "Civil, mexaniki, elektrik disiplinləri üzrə bütün gələn/gedən layihə sənədlərinə nəzarət",
-            "Davamlı dəqiqlik, yenidən baxış bütövlüyü və audit hazırlığı təmin edən MDR saxlanması",
-            "Sənəd nömrələmə, yenidən nəzarəti və metadata qaydalarına uyğunluğun təmin edilməsi",
-            "EDMS iş axınları və e-poçt əsaslı marşrutlaşdırma sistemlərinin monitorinqi",
+            "Civil, mexaniki, elektrik və digər mühəndislik intizamları üzrə bütün gələn/gedən layihə sənədlərinə nəzarət.",
+            "Rəsmi verilişdən əvvəl sənədlərin qeydiyyatı, yoxlanması, formatlanması və hazırlanması; davamlı reviziya bütövlüyü ilə MDR-in saxlanması.",
+            "MAR, MES və digər layihə çatdırılacaqları daxil olmaqla texniki təqdimatlığın idarə edilməsi; maraqlı tərəflərə düzgün marşrutlaşdırma və paylanmanın təmin edilməsi.",
+            "EDMS iş axınları və e-poçt əsaslı marşrutlaşdırma sistemlərinin monitorinqi; sənədlərin təsdiqlənmə üçün təqdim edilməsi və nəzərdən keçirmə nəticələrinin izlənilməsi.",
+            "Ardıcıl rəqəmsal və fiziki saxlama strukturlarının tətbiqi, sənəd nömrələmə, reviziya nəzarəti və metadata qaydalarına tam uyğunluğun təmin edilməsi.",
           ],
         },
         {
@@ -425,10 +473,10 @@ const translations = {
           company: "Clopos POS",
           location: "Bakı, Azərbaycan",
           highlights: [
-            "Çoxsaylı restoran mühitləri üçün POS sistemlərinin əməliyyat məntiqinin idarə edilməsi, proses axınlarının təkmilləşdirilməsi və sistem sabitliyinin qorunması.",
-            "Server və şəbəkə infrastrukturunun layihələndirilməsi, router və switchlərin konfiqurasiyası, eləcə də UniFi əsaslı simsiz şəbəkə mühitinin qurulması və optimallaşdırılması.",
-            "Avadanlıq sistemlərinin əsas komponentləri (SSD, HDD, RAM, CPU) üzrə diaqnostika, texniki baxım və nasazlıqların aradan qaldırılması.",
-            "OS quraşdırılması, printer konfiqurasiyası və ümumi IT xidmətləri",
+            "Bir çox restoran və mehmanxana müştəriləri üzrə POS sistemi əməliyyatları üçün texniki dəstəyin göstərilməsi.",
+            "Server, şəbəkə, router, switch və UniFi giriş nöqtələrinin quraşdırılması və konfiqurasiyası; bağlantı problemlərinin aradan qaldırılması.",
+            "Avadanlıq sistemlərinin (SSD, HDD, RAM, CPU) texniki baxımı və təmiri; OS quraşdırılması, printer konfiqurasiyası və ümumi IT dəstəyi.",
+            "Uyğunluq və fasiləsiz əməliyyatları təmin etmək üçün müxtəlif avadanlıq cihazlarının Clopos POS ekosisteminə inteqrasiyası.",
           ],
         },
       ],
@@ -453,9 +501,11 @@ const translations = {
     // Spoken Languages
     spokenLanguages: {
       items: [
-        { name: "İngilis", level: "Yuxarı-Orta" },
-        { name: "Rus", level: "Orta" },
-        { name: "Alman", level: "Başlanğıc" },
+        { name: "Azərbaycan", level: "Ana dili" },
+        { name: "İngilis", level: "Yuxarı-Orta (B2)" },
+        { name: "Rus", level: "Orta (B1)" },
+        { name: "Türk", level: "Peşəkar Səviyyə" },
+        { name: "Alman", level: "Başlanğıc (A2)" },
       ],
     },
   },
@@ -481,9 +531,9 @@ const translations = {
       name: "Гусейн Джавид",
       tagline:
         "Построение соответствующих, масштабируемых экосистем контроля документов",
-      role: "Руководитель контроля документов",
+      role: "Ведущий контролёр документов",
       description:
-        "Руководитель контроля документов с подтвержденным опытом создания быстрых, масштабируемых и полностью соответствующих экосистем контроля документов для крупномасштабных строительных и промышленных проектов. Эксперт в администрировании EDMS, управлении жизненным циклом и автоматизации рабочих процессов с использованием PowerShell и Python.",
+        "Целеустремлённый ведущий контролёр документов с опытом 4+ лет управления сложными экосистемами документов на крупных международных инженерных и строительных проектах. Эксперт в администрировании EDMS, рабочих процессах документов на основе FIDIC, управлении MDR и координации между дисциплинами с 20+ субподрядчиками. Уникальное преимущество: практические навыки автоматизации (PowerShell, Python), сократившие время обработки на 60%+, в сочетании с глубоким опытом ИТ-инфраструктуры. В настоящее время развивает передовые практики контроля документов в Wood Energy Group.",
       location: "Азербайджан, Баку",
       altText: "Гусейн Джавид",
     },
@@ -508,7 +558,7 @@ const translations = {
     // About
     about: {
       description:
-        "Я руководитель контроля документов с обширным опытом управления экосистемами контроля документов для крупномасштабных строительных проектов. Моя экспертиза заключается в администрировании EDMS, управлении жизненным циклом, контроле версий и координации заинтересованных сторон в средах Подрядчик-Инженер-Работодатель. Я обладаю высокими навыками автоматизации рабочих процессов с использованием PowerShell и Python, сократив ручную рабочую нагрузку более чем на 60% и преобразовав скорость оборота документов и точность.",
+        "Я ведущий контролёр документов с опытом 4+ лет управления сложными экосистемами документов на крупных международных инженерных и строительных проектах. Моя экспертиза включает администрирование EDMS, управление MDR, рабочие процессы документов на основе FIDIC, валидацию QA/QC и координацию между дисциплинами с 20+ субподрядчиками. Я обладаю высокими навыками автоматизации рабочих процессов с использованием PowerShell, Python и n8n, что позволило сократить ручную нагрузку более чем на 60%. В настоящее время развиваю передовые практики контроля документов в Wood Energy Group в Баку.",
     },
 
     // Contact
@@ -575,54 +625,59 @@ const translations = {
     // Footer
     footer: {
       copyright: "Все права защищены",
-      tagline: "Руководитель контроля документов • Азербайджан, Баку",
+      tagline: "Ведущий контролёр документов • Азербайджан, Баку",
     },
 
     // Competencies (Skills with arrays)
     competencies: {
       documentControl: {
-        title: "Контроль документов и управление",
+        title: "Контроль документов",
         items: [
-          "Управление контролем документов",
-          "Управление документацией",
-          "Жизненный цикл контроля документов (полный)",
-          "Контроль версий и соответствие",
-          "Руководство командой и обучение",
+          "Управление MDR",
+          "Управление передачами",
+          "Контроль версий",
+          "Валидация QA/QC",
+          "Управление жизненным циклом",
         ],
       },
       edms: {
-        title: "Экспертиза EDMS",
+        title: "EDMS и платформы",
         items: [
-          "Администрирование EDMS (Aconex, SharePoint, FileOrbis)",
-          "Проектирование и оптимизация рабочих процессов",
-          "Структурирование метаданных и системы нумерации",
-          "Управление MDR и DDM",
-          "Управление разрешениями и доступом",
+          "Внутренний EDMS (Wood Energy)",
+          "Aconex (KOLIN)",
+          "SharePoint",
+          "Пользовательские решения EDMS",
+          "Управление рабочими процессами на основе FIDIC",
         ],
       },
       automation: {
-        title: "Автоматизация и инструменты",
+        title: "Автоматизация и разработка",
         items: [
-          "Автоматизация Python (скрипты DCC)",
-          "Автоматизация PowerShell",
-          "Продвинутый Excel (панели управления, трекеры, сводные таблицы)",
+          "Скриптинг PowerShell",
+          "Автоматизация Python",
+          "Автоматизация рабочих процессов (n8n)",
+          "Продвинутый Excel и VBA",
           "Инструменты PDF (разметка, штампы, объединение)",
         ],
       },
       quality: {
-        title: "Качество и соответствие",
+        title: "ИТ-инфраструктура",
         items: [
-          "Подготовка к аудиту и целостность документов",
-          "Контролируемое распространение документов",
-          "Выявление рисков в потоке документов",
+          "Конфигурация и администрирование серверов",
+          "Настройка сети (UniFi, маршрутизаторы, коммутаторы)",
+          "Установка и обслуживание ОС",
+          "Диагностика и ремонт оборудования",
+          "Интеграция POS-системы",
         ],
       },
       reporting: {
-        title: "Отчетность и коммуникация",
+        title: "Гибкие навыки",
         items: [
-          "Отчетность и аналитика KPI",
-          "Создание панелей управления",
-          "Отчеты о статусе и отслеживание прогресса",
+          "Межфункциональная координация",
+          "Коммуникация с заинтересованными сторонами",
+          "Отчётность для руководства",
+          "Руководство командой и обучение",
+          "Отчётность по KPI и аналитика",
         ],
       },
     },
@@ -631,26 +686,44 @@ const translations = {
     experience: {
       items: [
         {
+          title: "Ведущий контролёр документов",
+          company: "Wood Energy Group",
+          location: "Баку, Азербайджан",
+          highlights: [
+            "Выступать в качестве центрального интерфейса контроля документов между организациями Клиента и Подрядчика, управляя всей официальной технической перепиской и обеспечивая полную прослеживаемость обмена документами.",
+            "Проверять, валидировать и обрабатывать все входящие заявки Подрядчика в соответствии с процедурами контроля документов проекта, договорными требованиями и применимыми инженерными стандартами до распределения Клиенту.",
+            "Управлять рабочими процессами передачи от начала до конца — проверять полноту, соблюдать протоколы представления и вести аудируемые записи всех движений документов.",
+            "Отслеживать и контролировать циклы проверки документов, отслеживать сроки ответов и эскалировать просроченные действия для обеспечения нулевого влияния на график проекта.",
+            "Поддерживать Главный реестр документов (MDR) с точным статусом ревизий, кодами проверок и историей представления по всем инженерным дисциплинам.",
+            "Обеспечивать строгое соблюдение соглашений о нумерации документов, стандартов метаданных и протоколов контроля ревизий на всех документах, входящих и выходящих из EDMS проекта.",
+          ],
+        },
+        {
           title: "Руководитель контроля документов",
           company: "KOLIN Construction",
           location: "Ситалчай, Азербайджан",
           highlights: [
-            "Разработал и управлял полным жизненным циклом документов (создание, проверка, утверждение, распространение, архивирование) в соответствии с требованиями FIDIC",
-            "Осуществлял полный контроль над всей исходящей и входящей документацией (TRN, LET, STQ, MAR, MIR, ITP, SHD, MOM, DR, NCR)",
-            "Руководил управлением MDR, обеспечивая строгие протоколы нумерации, версий и метаданных по всем дисциплинам",
-            "Разработал и внедрил структурированную архитектуру сервера для 5+ инженерных дисциплин и 20+ субподрядчиков",
-            "Разработал инструменты автоматизации (PowerShell/Python), сократив время ручной обработки более чем на 60%",
+            "Разработал и управлял полным жизненным циклом документов (создание, проверка, утверждение, распространение, архивирование) в соответствии с требованиями FIDIC.",
+            "Осуществлял полный контроль над всей исходящей и входящей документацией (TRN, LET, STQ, MAR, MIR, ITP, SHD, MOM, DR, NCR), обеспечивая нулевые ошибки и полную прослеживаемость.",
+            "Руководил управлением MDR, обеспечивая строгие протоколы нумерации, версий и метаданных по всем дисциплинам.",
+            "Разработал и внедрил структурированную архитектуру сервера, оптимизирующую документооборот для 5+ инженерных дисциплин и 20+ субподрядчиков.",
+            "Разработал и развернул инструменты автоматизации (PowerShell/Python) для упорядочивания подачи, именования, маршрутизации и архивирования — сократив время ручной обработки более чем на 60%.",
+            "Координировал беспрепятственную подачу документов между Подрядчиком, Инженером (Proyapi) и Работодателем (STP) через EDMS и автоматизированные рабочие процессы Outlook.",
+            "Выполнял высокоточную валидацию QA/QC перед официальным выпуском, включая форматирование, подписи, метаданные и проверки ссылок на чертежи.",
+            "Отслеживал циклы утверждения, незавершённые действия, сроки и разрешение комментариев; подготавливал еженедельные отчёты для руководства.",
+            "Укреплял кросс-дисциплинарную координацию между гражданскими, механическими, электрическими, отделочными, HSE, QC и закупочными командами.",
           ],
         },
         {
-          title: "Контролер документов",
+          title: "Контролёр документов",
           company: "KOLIN Construction",
           location: "Кальбаджар, Азербайджан",
           highlights: [
-            "Контролировал всю входящую/исходящую проектную документацию по гражданским, механическим, электрическим дисциплинам",
-            "Поддерживал MDR, обеспечивая постоянную точность, целостность версий и готовность к аудиту",
-            "Обеспечивал соответствие правилам нумерации документов, контроля версий и метаданных",
-            "Контролировал рабочие процессы EDMS и системы маршрутизации на основе электронной почты",
+            "Контролировал всю входящую/исходящую проектную документацию по гражданским, механическим, электрическим и другим инженерным дисциплинам.",
+            "Регистрировал, проверял, форматировал и подготавливал документы перед официальным выпуском; поддерживал MDR с непрерывной целостностью ревизий.",
+            "Управлял техническими представлениями, включая MAR, MES и другие проектные результаты; обеспечивал правильную маршрутизацию и распределение заинтересованным сторонам.",
+            "Контролировал рабочие процессы EDMS и системы маршрутизации на основе электронной почты; представлял документы на утверждение и отслеживал результаты проверки.",
+            "Внедрял последовательные структуры цифрового и физического хранения, обеспечивая полное соответствие правилам нумерации документов, контроля ревизий и метаданных.",
           ],
         },
         {
@@ -658,10 +731,10 @@ const translations = {
           company: "Clopos POS",
           location: "Баку, Азербайджан",
           highlights: [
-            "Управлял операционной логикой POS-систем в среде множества ресторанов, оптимизировал процессные потоки и обеспечивал стабильность систем.",
-            "Осуществлял установку и конфигурацию серверов и сетевой инфраструктуры, включая маршрутизаторы, коммутаторы и точки доступа UniFi.",
-            "Проводил диагностику, техническое обслуживание и устранение неисправностей основных аппаратных компонентов (SSD, HDD, RAM, CPU).",
-            "Выполнял установку ОС, настройку принтеров и общую ИТ-поддержку",
+            "Обеспечивал техническую поддержку POS-систем для множества ресторанов и гостиничных клиентов.",
+            "Устанавливал и настраивал серверы, сети, маршрутизаторы, коммутаторы и точки доступа UniFi; устранял проблемы с подключением.",
+            "Обслуживал и ремонтировал аппаратные системы (SSD, HDD, RAM, CPU); выполнял установку ОС, настройку принтеров и общую ИТ-поддержку.",
+            "Интегрировал различные аппаратные устройства в экосистему Clopos POS, обеспечивая совместимость и бесперебойную работу.",
           ],
         },
       ],
@@ -686,9 +759,11 @@ const translations = {
     // Spoken Languages
     spokenLanguages: {
       items: [
-        { name: "Английский", level: "Выше среднего" },
-        { name: "Русский", level: "Средний" },
-        { name: "Немецкий", level: "Начальный" },
+        { name: "Азербайджанский", level: "Родной" },
+        { name: "Английский", level: "Выше среднего (B2)" },
+        { name: "Русский", level: "Средний (B1)" },
+        { name: "Турецкий", level: "Профессиональный уровень" },
+        { name: "Немецкий", level: "Начальный (A2)" },
       ],
     },
   },
@@ -725,9 +800,7 @@ function getNestedTranslation(
     if (current && typeof current === "object" && key in current) {
       current = current[key];
     } else {
-      if (process.env.NODE_ENV === "development") {
-        console.warn(`[i18n] Translation missing for key: ${path}`);
-      }
+      console.warn(`[i18n] Translation missing for key: ${path}`);
       return fallback;
     }
   }
