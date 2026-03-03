@@ -516,7 +516,7 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="/Huseyn-Cavid-Resume.pdf"
+                href="/Huseyn_Cavid_CV.pdf"
                 download
                 onClick={e => e.stopPropagation()}
               >
